@@ -6,7 +6,7 @@
 
 | Item | Status |
 |---|---|
-| Physical device | **OBSERVED/HISTORICAL:** Realme Narzo 20 Pro, RMX2161; MediaTek Helio G95; 6 GB RAM; non-rooted Android 12 |
+| Physical device | **OBSERVED/HISTORICAL:** Realme Narzo 20 Pro; MediaTek Helio G95; 6 GB RAM; non-rooted Android 12 |
 | Runtime stack | **OBSERVED:** Termux → `proot-distro` → Ubuntu → `/root/start-services.sh` |
 | Ubuntu root filesystem | **OBSERVED:** Android userdata ext4, 50 GB total / 20 GB used / 30 GB free at audit |
 | Conventional init | **OBSERVED:** absent; the shell supervisor is the service-control mechanism |

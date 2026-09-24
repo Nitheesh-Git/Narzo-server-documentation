@@ -30,10 +30,10 @@ The arrows represent observed startup and proxy relationships. They do not imply
 | nginx | Single HTTP entry point and static dashboard/AriaNg server | `nginx` |
 | FileBrowser | File interface for `/root/files` | `filebrowser -r /root/files -a 0.0.0.0 -p 8081 --baseurl /files` |
 | Glances | Web monitoring | `glances -w` with network-related plugins disabled |
-| pyftpdlib | FTP access to `/root/files` | bound to `100.70.24.74:2121` |
-| aria2 | Download engine with RPC | config at `/root/.aria2/aria2.conf` |
+| pyftpdlib | FTP access to shared files | bound to the Tailscale interface |
+| aria2 | Download engine with RPC | private configuration path omitted |
 | Navidrome | Music streaming/catalogue | music directory and data directory supplied on command line |
-| AddSong | Download/search/delete helper for the music library | Flask app at loopback `:5001` |
+| AddSong | Download/search/delete helper for the music library | Flask app bound to loopback |
 
 ## Architecture characteristics
 
@@ -41,4 +41,3 @@ The arrows represent observed startup and proxy relationships. They do not imply
 - **DESIGN DECISION:** nginx is the HTTP front door on port 8080; it proxies FileBrowser, Navidrome, and AddSong.
 - **KNOWN LIMITATION:** This is a phone-based Android/Termux/proot environment, not conventional Ubuntu bare metal.
 - **KNOWN LIMITATION:** The supervisor checks process presence, not application health.
-

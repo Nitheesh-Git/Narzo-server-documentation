@@ -14,7 +14,7 @@
 |---|---|
 | aria2 RPC listens on all local interfaces | **OBSERVED**; secret is configured |
 | AddSong exposes unauthenticated download and delete actions | **OBSERVED** |
-| AddSong builds a `bash -c` command from user-controlled URL/playlist fields without observed shell escaping | **OBSERVED command-injection risk** |
+| AddSong has unsafe handling of user input in a shell operation | **OBSERVED command-execution risk; implementation detail withheld** |
 | AddSong returns absolute paths after deletion | **OBSERVED information disclosure** |
 | nginx allows unlimited request-body size | **OBSERVED** (`client_max_body_size 0`) |
 | nginx advertises build information | **OBSERVED** (`server_tokens build`) |
@@ -25,4 +25,3 @@ This file describes present risks; it does not authorize or imply a redesign.
 ## Disclosure rules
 
 Never commit passwords, API keys, private keys, tokens, cookies, authentication databases, RPC secrets, or private endpoints. The aria2 configuration may state only: **“RPC secret configured; value redacted.”** Run a secret scan before publishing any future revision.
-

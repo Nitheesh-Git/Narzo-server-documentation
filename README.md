@@ -30,7 +30,7 @@ This is a living homelab. Claims are updated when new audit evidence contradicts
 
 | Component | Current state |
 |---|---|
-| Physical device | Realme Narzo 20 Pro, RMX2161 |
+| Physical device | Realme Narzo 20 Pro |
 | Host OS | Android 12, non-rooted |
 | Hardware | MediaTek Helio G95, 6 GB RAM |
 | Entry point | Termux and Termux:Boot |
@@ -48,11 +48,11 @@ This is a living homelab. Claims are updated when new audit evidence contradicts
 | nginx | HTTP front door, dashboard, static AriaNg, reverse proxy | `:8080` | Functional on tested LAN and tailnet paths |
 | FileBrowser | File interface for `/root/files` | `:8081`, `/files` | LAN reachable at audit point |
 | Glances | Web monitoring | `:61208` | LAN reachable at audit point |
-| aria2 | Download engine with authenticated RPC | `:6800`, `/aria/` UI | LAN reachable at audit point |
-| Navidrome | Music catalogue and streaming | `:4533`, `/music` | Functional |
-| pyftpdlib | FTP access to `/root/files` | `:2121` | Tailnet reachable, known unstable |
-| AddSong | Music download, search, and delete helper | loopback `:5001`, `/add-api/` | Functional, security-limited |
-| Termux SSH | Remote shell service | configured `:8022` | Process present, TCP listener unavailable at audit point |
+| aria2 | Download engine with authenticated RPC | RPC and `/aria/` UI | LAN reachable at audit point |
+| Navidrome | Music catalogue and streaming | nginx music route | Functional |
+| pyftpdlib | FTP access to shared files | Tailscale interface | Tailnet reachable, known unstable |
+| AddSong | Music download, search, and delete helper | loopback, proxied by nginx | Functional, security-limited |
+| Termux SSH | Remote shell service | configured SSH port | Process present, TCP listener unavailable at audit point |
 
 Service details and evidence boundaries are in [services/services.md](services/services.md).
 
@@ -62,10 +62,10 @@ Service details and evidence boundaries are in [services/services.md](services/s
 
 | Location | Role | Audit size |
 |---|---|---:|
-| `/root/files/Aria Downloads` | aria2 downloads | 2.7 GB |
-| `/root/files/personal` | personal data and music tree | 1.8 GB |
-| `/root/navidrome` | Navidrome catalogue data | 133 MB |
-| `/root/.aria2` | aria2 configuration and session state | 20 KB |
+| Shared downloads directory | aria2 downloads | about 2.7 GB |
+| Personal media directory | music and other personal data | about 1.8 GB |
+| Navidrome data directory | catalogue data | about 133 MB |
+| aria2 state directory | configuration and session state | about 20 KB |
 
 The proot-visible root filesystem is Android userdata ext4. At audit time it was 50 GB total, 20 GB used, and 30 GB available. See [storage and data flow](architecture/data-flow.md).
 

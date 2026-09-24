@@ -31,8 +31,8 @@ flowchart LR
     Nginx --> ND[Navidrome :4533]
     Nginx --> AS[AddSong :5001]
     Aria2[aria2] --> Downloads[/root/files/Aria Downloads]
-    AS --> Music[/root/files/personal/.../music]
-    FB --> Files[/root/files]
+    AS --> Music[Personal music directory]
+    FB --> Files[Shared data root]
     FTP[FTP on tailnet] --> Files
     ND --> Music
     ND --> NavDB[/root/navidrome/navidrome.db]
@@ -43,10 +43,10 @@ flowchart LR
 
 ```text
 Confirmed LAN reachability
-  10.248.33.58:8080, :8081, :61208, :6800, :4533
+  nginx, FileBrowser, Glances, aria2, and Navidrome
 
 Confirmed tailnet reachability
-  100.70.24.74:8080, :2121, nginx /add-api/ route
+  nginx, FTP, and AddSong through nginx
 
 Unknown
   Router forwarding, IPv6 inbound policy, UPnP/NAT-PMP,
@@ -54,4 +54,3 @@ Unknown
 ```
 
 See [network and exposure](../architecture/network-and-exposure.md) for the evidence behind each boundary.
-
