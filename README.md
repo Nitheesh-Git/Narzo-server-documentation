@@ -28,12 +28,11 @@ Android 12 → Termux / Termux:Boot → proot Ubuntu → start-services.sh → s
 
 Each claim is intentionally classified:
 
-- **OBSERVED** — directly shown by a current command, configuration, process list, or log.
-- **HISTORICAL** — supplied build history that may no longer describe the running system.
-- **INFERRED** — a reasonable conclusion, not a direct observation.
-- **DESIGN DECISION** — an intentional implementation choice.
-- **KNOWN LIMITATION** — a verified constraint or weakness.
-- **UNKNOWN / NOT YET VERIFIED** — no adequate evidence yet.
+- **OBSERVED** - directly shown by a current command, configuration, process list, or log.
+- **HISTORICAL** - supplied build history that may no longer describe the running system.
+- **INFERRED** - a reasonable conclusion, not a direct observation.
+- **DESIGN DECISION** - an intentional implementation choice.
+- **KNOWN LIMITATION** - a verified constraint or weakness.
+- **UNKNOWN / NOT YET VERIFIED** - no adequate evidence yet.
 
 Secrets, credentials, tokens, keys, and the aria2 RPC secret are never stored here.
-

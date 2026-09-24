@@ -1,4 +1,4 @@
-# Current state — audit snapshot
+# Current state: audit snapshot
 
 **Audit date:** 2026-09-25 (Asia/Kolkata). Some machine logs contain inconsistent timestamps; individual log dates must not be treated as a reliable chronology without corroboration.
 
@@ -27,4 +27,3 @@
 ## Audit constraints
 
 `ss`, `netstat`, `/proc/net/tcp*`, and firewall inspection inside proot were empty, restricted, or permission-denied. They must not be used as evidence that sockets or firewall rules do not exist. Listener reachability was instead tested from the local stack and independent LAN/tailnet clients.
-
